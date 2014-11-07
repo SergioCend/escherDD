@@ -26,7 +26,7 @@ document.write (output);
     <%var c=0; %>
     <tr>
     <% _.each(videos, function(video) { %>        
-    <%if(c==3){%><tr><%c=0;}%>
+    <%if(c==2){%><tr><%c=0;}%>
     <td> 
     
    <div>
@@ -42,7 +42,7 @@ data="http://www.youtube.com/embed/<%= htmlEncode(video.getDisplay('urlArchivo')
 	<% } %>          
     </td>
     <%c=c+1; %>    
-    <%if(c==3){%></tr><%}%>  
+    <%if(c==2){%></tr><%}%>  
     <% }); %>
     </tr>
     </tbody>
