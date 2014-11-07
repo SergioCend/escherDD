@@ -1,0 +1,69 @@
+<script type="text/template" id="videee">
+    function insertar_YouTube(IDyoutube) {var output = "<div style=\"text-align:center;\">";
+output += "<object width=\"425\" height=\"350\" id=\"movie\" type=\"application/x-shockwave-flash\" data=\"http://www.youtube.com/v/" + IDyoutube + "&hl=es&fs=1&rel=0&ap=%2526fmt%3D18&showsearch=0&showinfo=0\">";
+output += "<param name=\"movie\" value=\"http://www.youtube.com/v/" + IDyoutube + "&hl=es&fs=1&rel=0&ap=%2526fmt%3D18&showsearch=0&showinfo=0\" />";
+output += "<param name=\"wmode\" value=\"transparent\" />";
+output += "<param name=\"allowfullscreen\" value=\"true\" />";
+output += "</object>";
+output += "</div>";
+document.write (output);
+}
+//]]>
+</script>
+
+<script type="text/template" id="videoList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>Url Archivo</th>
+		 <th>Name</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%var c=0; %>
+    <tr>
+    <% _.each(videos, function(video) { %>        
+    <%if(c==3){%><tr><%c=0;}%>
+    <td> 
+    
+   <div>
+   <object width="300" height="237"
+data="http://www.youtube.com/embed/<%= htmlEncode(video.getDisplay('urlArchivo')) %>">
+</object>
+   </div>
+  <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-video-edit',{id:<%= video.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-video-delete',{id:<%= video.id %>}); return false" >Delete</a> 
+	<% } %>          
+    </td>
+    <%c=c+1; %>    
+    <%if(c==3){%></tr><%}%>  
+    <% }); %>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="video">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-videoForm">
+    <% if(video.id) {%>
+    <input type="hidden" name="id" value="<%= video.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="urlArchivo">Url Archivo</label>
+    	<input type="text" class="form-control" id="urlArchivo" name="urlArchivo" placeholder="Enter value" value="<%= video.get('urlArchivo') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="name">Name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= video.get('name') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

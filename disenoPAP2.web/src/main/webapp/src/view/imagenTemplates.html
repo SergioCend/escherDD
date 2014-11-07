@@ -1,0 +1,60 @@
+<script type="text/template" id="imagenList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>Name</th>
+		 <th>Alto</th>
+		 <th>Ancho</th>
+		 <th>Url</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(imagens, function(imagen) { %>
+    <tr>
+		<td><%= htmlEncode(imagen.getDisplay('name')) %></td>
+		<td><%= htmlEncode(imagen.getDisplay('alto')) %></td>
+		<td><%= htmlEncode(imagen.getDisplay('ancho')) %></td>
+		<td><%= htmlEncode(imagen.getDisplay('url')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-imagen-edit',{id:<%= imagen.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-imagen-delete',{id:<%= imagen.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="imagen">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-imagenForm">
+    <% if(imagen.id) {%>
+    <input type="hidden" name="id" value="<%= imagen.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">Name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= imagen.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="alto">Alto</label>
+    	<input type="text" class="form-control" id="alto" name="alto" placeholder="Enter value" value="<%= imagen.get('alto') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="ancho">Ancho</label>
+    	<input type="text" class="form-control" id="ancho" name="ancho" placeholder="Enter value" value="<%= imagen.get('ancho') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="url">Url</label>
+    	<input type="text" class="form-control" id="url" name="url" placeholder="Enter value" value="<%= imagen.get('url') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

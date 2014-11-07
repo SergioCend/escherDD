@@ -1,0 +1,48 @@
+<script type="text/template" id="autorList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>Apellidos</th>
+		 <th>Name</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(autors, function(autor) { %>
+    <tr>
+		<td><%= htmlEncode(autor.getDisplay('apellidos')) %></td>
+		<td><%= htmlEncode(autor.getDisplay('name')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-autor-edit',{id:<%= autor.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-autor-delete',{id:<%= autor.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="autor">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-autorForm">
+    <% if(autor.id) {%>
+    <input type="hidden" name="id" value="<%= autor.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="apellidos">Apellidos</label>
+    	<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Enter value" value="<%= autor.get('apellidos') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="name">Name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= autor.get('name') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 
