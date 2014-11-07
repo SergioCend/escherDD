@@ -4,15 +4,18 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Name</th>
-		 <th>Imagen</th>
+                <th>Imagen</th>
+		<th>Nombre</th>
+		 
     <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% _.each(imagens, function(imagen) { %>
     <tr>
-    <td><IMG SRC="<%= htmlEncode(imagen.getDisplay('url')) %>" height="80" width="80" ></td>
+    
+    <td><a class="example-image-link" href="<%= htmlEncode(imagen.getDisplay('url')) %>" data-lightbox="imagenes" data-title="<%= htmlEncode(imagen.getDisplay('name')) %>"><img SRC="<%= htmlEncode(imagen.getDisplay('url')) %>" height="80" width="80" ></a></td>
+    <div class="fb-like" data-href="http://facebook.com" data-width="10" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 		<td><%= htmlEncode(imagen.getDisplay('name')) %></td>
     <td>
     <% if(showEdit) {%>
