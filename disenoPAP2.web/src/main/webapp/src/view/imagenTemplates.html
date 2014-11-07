@@ -15,9 +15,7 @@
     <% _.each(imagens, function(imagen) { %>
     <tr>
 		<td><%= htmlEncode(imagen.getDisplay('name')) %></td>
-		<td><%= htmlEncode(imagen.getDisplay('alto')) %></td>
-		<td><%= htmlEncode(imagen.getDisplay('ancho')) %></td>
-		<td><%= htmlEncode(imagen.getDisplay('url')) %></td>
+        <IMG SRC="<%= htmlEncode(imagen.getDisplay('url')) %>" height="80" width="80" >
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-imagen-edit',{id:<%= imagen.id %>}); return false" >Edit</a> |
