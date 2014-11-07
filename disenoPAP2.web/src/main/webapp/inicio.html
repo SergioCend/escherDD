@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio CRUD</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <!--<script>
+            loadComponents = [
+            {
+                    name: 'component/jacintoComponent', 
+                    render: true,
+                    domElementId: 'main'
+            }
+            ];
+        </script>-->
+        <script src="./js/vendor/jquery-1.9.1.js"></script>
+        <script src="./js/vendor/bootstrap.min.js"></script>
+        <script src="./js/vendor/underscore-min.js"></script>
+        <script src="./js/vendor/backbone-min.js"></script>
+        <script src="./js/vendor/bootstrap-datepicker.js"></script>
+        <script data-main="src/main" src="./js/vendor/require.js"></script> 
+    </head>
+    <body>
+    
+    <header id="top">
+	<h2><a href="index.html">ESCHER</a></h2>
+  <form action="administrar.html" id="logIn">
+    <label for="email">Email:</label>
+   	<input type="email" name="email" id="email">
+    <label for="password4"> Password:</label>																							   	
+    <input type="password" name="password" id="password">
+	<input type="submit" name="buttonLogIn" id="buttonLogIn" value="Log in">
+  </form>
+
+	</header> 
+    
+<div id="wrapper">
+
+  	
+    &nbsp
+    <h1>Escher</h1>
+      	<nav id="mainnav">
+                  <ul>
+                        <li><a href="index.html" class="thispage">Home</a></li>
+                        <li><a href="index.html">Trabajos</a></li>
+                        <li><a href="#">Exposiciones</a></li>
+                  </ul>
+    	</nav>
+              <div id="hero">
+                <article>
+                  <h2>Be Where It&rsquo;s At</h2>
+                  <p>San Francisco is one of the most exciting and vibrant cities  on the planet. Bayside Beat is here to keep you informed of the best places to  see, where to eat, what to do, and where to lay down your weary head after an  action-packed day—or night—on the town.</p>
+                </article>
+      <img src="./img/index.png"  alt=""/></div>
+              <article id="main">
+                <h2>El senior Jacinto</h2>
+                <p>No visit to San Francisco is complete without a ride on the  iconic cable cars that climb up the vertiginous hills of the city. Of the  twenty-three lines established between 1873 and 1890, three remain: two routes  from downtown near Union Square to <a href="http://www.fishermanswharf.org/">Fisherman's Wharf</a>, and a third route along  California Street.</p>
+                <article id="main">
+    <figure class="centered"><img src="./img/jacintomaster.jpg" width="400" height="266"  alt=""/>
+            <figcaption>The cable car terminus near Union Square</figcaption>
+                  </figure>
+    </article>
+    </article>
+              <aside id="sidebar"> </aside>
+      <footer>
+        <p> © Copyright 2014 Encryptors</p>
+      </footer>
+    </div>
+</body>
+</html>

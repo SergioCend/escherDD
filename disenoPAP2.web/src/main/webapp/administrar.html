@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Administrar</title>
+<link href="css/administrar.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="./js/vendor/jquery-1.9.1.js"></script>
+        <script src="./js/vendor/bootstrap.min.js"></script>
+   
+</head>
+
+<body> 
+    <script type="text/javascript">
+            function redirectFra(url) {
+                $('#contain').attr('src', url);
+                $('#contain').css('height', ($(window).height() - $('#header').height() - 30) + 'px');
+            }
+            
+    </script>
+<header id="top">
+	<h2><a href="index.html">ESCHER</a></h2>
+  <form action="administrar.html" id="logIn">
+    <label for="email">Email:</label>
+   	<input type="email" name="email" id="email">
+    <label for="password4"> Password:</label>																							   	
+    <input type="password" name="password" id="password">
+	<input type="submit" name="buttonLogIn" id="buttonLogIn" value="Log in">
+  </form>
+
+</header>
+<div id="wrapper">
+		
+        
+        <p id="admin">Administracion</p>
+        
+      <section id="panelAdmin">     
+    <section id="sideBar">
+      <nav id="sidebarnav">
+        <ul>
+              <li><a href="#" onclick="redirectFra('trabajoMaster.html'); return false;">Trabajos</a></li>
+              <li><a  onclick="redirectFra('trabajoMaster.html'); return false;">Exposiciones</a ></li>
+              <li><a href="#">Usuarios</a></li>
+            <li><a href="#" onclick="redirectFra('obra.html'); return false;">Obras</a></li>
+            <li><a href="#" onclick="redirectFra('video.html'); return false;">Videos</a></li>
+            <li><a href="#" onclick="redirectFra('imagen.html'); return false;">Imagenes</a></li>
+          </ul>
+      </nav>
+    </section>
+    <section id="sideBar">
+    <nav id="framenav">
+        <iframe id="contain" src=""></iframe> 
+    </nav>    
+    </section>
+    </section>
+    <script>
+        redirectFra('trabajoMaster.html')
+    </script>
+</div>
+</body>
+</html>
