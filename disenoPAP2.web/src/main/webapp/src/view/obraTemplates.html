@@ -12,7 +12,7 @@
     <tbody>
     <% _.each(obras, function(obra) { %>
     <tr>
-		<td><IMG SRC="<%= htmlEncode(obra.getDisplay('urlArchivo')) %>" height="80" width="80" ></td>
+		<td><a href="<%= htmlEncode(obra.getDisplay('urlArchivo')) %>"><%= htmlEncode(obra.getDisplay('name')) %></a></td>
 		<td><%= htmlEncode(obra.getDisplay('name')) %></td>
     <td>
     <% if(showEdit) {%>
